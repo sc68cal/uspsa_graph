@@ -1,0 +1,22 @@
+---
+# Use python for now since there is no bash support
+sudo: required
+
+language: python
+dist: trusty
+
+env:
+    - export PIP_CONFIG_FILE=${PWD}/pip.conf
+
+addons:
+  apt:
+    packages:
+    - python3
+    - python-tox
+    - python-pip
+
+branches:
+  only:
+    - master
+
+script: .travis/build.sh
